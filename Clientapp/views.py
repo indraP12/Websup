@@ -8,25 +8,35 @@ from django.contrib.auth.decorators import login_required
 #   Website Views
 #####################
 def homepage(request):
-    template = ''
+    template = 'website/homepage.html'
     context = {}
     return render(request, template,context)
 
 def aboutus(request):
-    template = "clientapp/aboutus.html"
+    template = "website/aboutus.html"
     context = {}
     return render(request, template, context)
 
 def plans(request):
-    template = "clientapp/plans.html"
+    template = "website/plans.html"
     context = {}
     return render(request, template, context)
 
 def contactus(request):
-    template = "clientapp/contactus.html"
-    context = {}
+    errors = None
+    if (request.method == "POST"):
+        contact_form = ContactusForm(request.POST, request.FILES)
+        if contact_form.is_valid():
+            new_contact = contact_form.save(commit=False)
+            new_contact.from_user = request.user
+            new_contact.save()
+            return HttpResponseRedirect("/index")
+        else:
+            errors = str(new_member_form.errors)
+    contact_form = ContactusForm()
+    template = "website/contactus.html"
+    context = {"form": contact_form, "errors": errors}
     return render(request, template, context)
-
 
 
 #####################
@@ -46,7 +56,7 @@ def send(request):
         message_form = Whatsapp_Message_Form(request.POST, request.FILES)
         if message_form.is_valid():
             new_message = message_form.save(commit=False)
-            new_message.handled_by = request.user
+            new_message.from_user = request.user
             new_message.save()
             return HttpResponseRedirect("/send")
         else:
@@ -60,5 +70,12 @@ def send(request):
 @login_required
 def report(request):
     template = "clientapp/report.html"
+    context = {}
+    return render(request, template, context)
+
+
+@login_required
+def currentplan(request):
+    template = "clientapp/currentplan.html"
     context = {}
     return render(request, template, context)

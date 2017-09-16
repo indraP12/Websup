@@ -7,15 +7,17 @@ import Clientapp.views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
 
+    url(r'^index$', Clientapp.views.homepage, name='homepage'),
     url(r'^aboutus$', Clientapp.views.aboutus, name='aboutus'),
     url(r'^plans$', Clientapp.views.plans, name='plans'),
     url(r'^contactus$', Clientapp.views.contactus, name='contactus'),
 
     ## Clientapp
-    url(r'^$' , Clientapp.views.dashboard , name="clientapp_dashboard"),
-    url(r'^send$', Clientapp.views.send,  name="clientapp_send"),
-    url(r'^report$', Clientapp.views.report,  name="clientapp_report"),
-
+    url(r'^user/$' , Clientapp.views.dashboard , name="clientapp_dashboard"),
+    url(r'^user/send$', Clientapp.views.send,  name="clientapp_send"),
+    url(r'^user/report$', Clientapp.views.report,  name="clientapp_report"),
+    url(r'^user/currentplan$', Clientapp.views.currentplan,  name="clientapp_currentplan"),
+    
     ## Login 
     url(r'^user/login/$', auth_views.login, {'template_name' : 'registration/login.html'}, name='auth_login'),
     url(r'^user/logout/$', auth_views.logout, {'template_name' : 'registration/logout.html'}, name='auth_logout'),

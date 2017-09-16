@@ -33,7 +33,7 @@ ROOT_URLCONF = 'Websup.urls'
 
 AUTH_USER_MODEL = 'Clientapp.MyUser'
 
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/user/'
 LOGIN_URL = '/user/login/'
 
 TEMPLATES = [
@@ -62,6 +62,13 @@ DATABASES = {
     }
 }
 
+# PASSWORD_HASHERS = [
+#     'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',
+#     'django.contrib.auth.hashers.BCryptPasswordHasher',
+#     'django.contrib.auth.hashers.PBKDF2PasswordHasher',
+#     'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
+#     'django.contrib.auth.hashers.Argon2PasswordHasher',
+# ]
 
 AUTH_PASSWORD_VALIDATORS = [
     { 'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator', },

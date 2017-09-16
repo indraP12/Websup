@@ -3,8 +3,8 @@
 
 {% block head %}
 <html>
-	<head>
-		<title>Bluk Whatsapp</title>
+  <head>
+    <title>Bluk Whatsapp</title>
         <!-- Plugins css-->
         <link rel="stylesheet" type="text/css" media="screen" href="{% static 'plugins/bootstrap-tagsinput/css/bootstrap-tagsinput.css' %}" />
         <link rel="stylesheet" type="text/css" media="screen" href="{% static 'plugins/switchery/css/switchery.min.css' %}" />
@@ -27,51 +27,50 @@
   <div class="row">
     <div class="col-sm-12">
       <div class="card-box">
-        <h4 class="m-t-0 header-title"><b>Send whatsapp messages</b></h4>
-        <br>
-          <div class="row">
-            <div class="col-md-8">
-              <form method="POST" action="." class="form-horizontal" role="form">  
-              {% csrf_token %}
-                  <div class="form-group">
-                      <lable class="col-md-2 control-label" for="id_campaign_name">Campaign Name</lable>
-                      <div class="col-md-6">
-                        <input class="form-control" id="id_campaign_name" type="text" maxlength="100" placeholder="Enter Campaign Name here..">
-                      </div>                           
+      <h4 class="m-t-0 header-title"><b>Send whatsapp messages</b></h4>
+      <br>
+        <div class="row">
+          <div class="col-md-8">
+            <form method="POST" class="form-horizontal" role="form">  
+            {% csrf_token %}
+              <div class="form-group">
+                  <lable class="col-md-2 control-label" for="id_campaign_name">Campaign Name</lable>
+                  <div class="col-md-6">
+                    <input class="form-control" id="id_campaign_name" name="campaign_name" type="text" maxlength="100" placeholder="Enter Campaign Name here..">
+                  </div>                           
+              </div>
+              <div class="form-group">
+                  <label class="col-md-2 control-label" for="">Mobile Numbers</label>
+                  <div class="col-md-6">
+                      <textarea class="form-control" rows="5" id=""></textarea>
                   </div>
-                  <div class="form-group">
-                      <label class="col-md-2 control-label" for="">Mobile Numbers</label>
-                      <div class="col-md-6">
-                          <textarea class="form-control" rows="5" id=""></textarea>
-                      </div>
+              </div>
+              <div class="form-group">
+                  <label class="col-md-2 control-label">Count</label>
+                  <div class="col-md-4">
+                      <input type="text" class="form-control" placeholder="total number in list">
                   </div>
-                  <div class="form-group">
-                      <label class="col-md-2 control-label">Count</label>
-                      <div class="col-md-4">
-                          <input type="text" class="form-control" placeholder="total number in list">
-                      </div>
+              </div>
+              <div class="form-group">
+                  <label class="col-md-2 control-label" for="id_msg_text">Message</label>
+                  <div class="col-md-6">
+                      <textarea class="form-control" placeholder="Enter your text message" id="id_msg_text" name="msg_text" maxlength="1500">
+                      </textarea>
                   </div>
-                  <div class="form-group">
-                      <label class="col-md-2 control-label" for="id_msg_text">Message</label>
-                      <div class="col-md-6">
-                          <textarea class="form-control" placeholder="Enter your text message" id="id_msg_text" maxlength="1500">
-                          </textarea>
-                      </div>
-                  </div>
-              </form>
-            </div>
+              </div>
           </div>
+        </div>
       </div>
     </div> 
   </div>
   <div class="row">
     <div class="col-sm-12">
       <div class="card-box">
-        <h4 class="m-t-0 header-title"><b>Upload Image, Videos, PDF</b></h4>
+      <h4 class="m-t-0 header-title"><b>Upload Image, Videos, PDF</b></h4>
         <div class="row">
           <div class="col-md-6">
             <div class="p-20">
-              <form method="POST" action="." class="form-horizontal" role="form">
+              <div class="form-horizontal" role="form">
                 <div class="form-group">
                   <label class="control-label">Upload Image 1 </label>
                   <input type="file" class="filestyle" data-buttonbefore="true">
@@ -88,12 +87,12 @@
                   <label class="control-label">Upload Image 4 </label>
                   <input type="file" class="filestyle" data-buttonbefore="true">
                 </div>
-              </form>
+              </div>
             </div>
           </div>
           <div class="col-md-6">
             <div class="p-20">
-              <form method="POST" action="." class="form-horizontal" role="form">
+              <div class="form-horizontal" role="form">
                 <div class="form-group">
                   <label class="control-label">Upload Audio </label>
                   <input type="file" class="filestyle" data-buttonbefore="true">
@@ -106,8 +105,8 @@
                   <label class="control-label">Upload pdf </label>
                   <input type="file" class="filestyle" data-buttonbefore="true">
                 </div>
-              </form>
-            </div>
+                </div>
+              </div>
           </div>
         </div>
     </div>
@@ -115,12 +114,11 @@
   <div class="row">
     <div class="col-sm-12">
       <div class="card-box">
-        <h4 class="m-t-0 header-title"><b>Create VCard</b></h4>
-          <br>
-            <div class="row">
-              <div class="col-md-6">
-                <form class="form-horizontal" role="form">                                    
-          <div class="form-group">
+      <h4 class="m-t-0 header-title"><b>Create VCard</b></h4>
+      <br>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group" class="form-horizontal" role="form">
               <input type="text" class="form-control" placeholder="Campaign Name">
               <input type="text" class="form-control" placeholder="Adreess">
               <input type="text" class="form-control" placeholder="contact number">
@@ -128,11 +126,14 @@
               <input type="text" class="form-control" placeholder="Cell number">
               <input type="text" class="form-control" placeholder="Email id">
               <input type="text" class="form-control" placeholder="Website URL">
+            </div> 
+            <button class="btn btn-purple waves-effect waves-light" type="submit" name="submit">submit</button> 
           </div>
-          <input class="btn btn-purple waves-effect waves-light" type="submit" value="submit">
+        </div>
       </div>
     </div>
-  </div> 
+  </div>        
+</form>
 </div>
 {% endblock %}
 </body>
@@ -168,5 +169,4 @@
       <script type="text/javascript" src="{% static 'pages/jquery.form-advanced.init.js' %}"></script>
 {% endblock javascript %}
 
-{% endblock %}	
-  
+{% endblock %}

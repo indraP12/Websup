@@ -23,7 +23,7 @@ class MyUserManager(BaseUserManager):
 
 		class Meta:
 			model = Person
-			exclude = ('name',)
+			exclude = ("",)
 
 class MyUser(AbstractBaseUser):
 	name = models.CharField( verbose_name='Name', max_length=255, unique=False, null=False, blank=False )
@@ -53,7 +53,17 @@ class MyUser(AbstractBaseUser):
 	@property
 	def is_staff(self):
 		# Is the user a member of staff?
-		return self.is_admin
+		return self.is_active
+
+
+class contactus(models.Model):
+	name = models.CharField(verbose_name="name", max_length=25, null=False, blank=False)
+	contact_number = models.IntegerField(verbose_name="Mobile Number")
+	email_address = models.EmailField(verbose_name="Email Address", max_length=255, unique=True, null=False, blank=False)
+	contact_msg = models.CharField(verbose_name="Contact message", max_length=1500, null=True, blank=False)
+
+	def __str__(self):
+		return "-".join([self.name, str(self.contact_number)])
 
 class Plan(models.Model):
 	is_active = models.BooleanField(default=False)
@@ -121,4 +131,10 @@ class Whatsapp_Message_Form(ModelForm):
 class Whatsapp_indvidual_message_form(ModelForm):
 	class Meta:
 		model = WhatsApp_Individual_Message
+		exclude = ("",)
+
+
+class ContactusForm(ModelForm):
+	class Meta:
+		model = contactus
 		exclude = ("",)

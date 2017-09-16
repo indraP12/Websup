@@ -14,7 +14,7 @@
         <link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/bootstrap.min.css' %}"/>
         <link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/core.css' %}"/>
         <link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/components.css' %}"/>
-        <link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/icons.css' %}"/>
+        <link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/icons.css' %}"/> 
         <link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/pages.css' %}"/>
         <link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/responsive.css' %}"/>
         {% block css %}
@@ -74,7 +74,7 @@
                                         <em class="fa fa-diamond noti-primary"></em>
                                      </div>
                                      <div class="media-body">
-                                        <h5 class="media-heading">A new order has been placed A new order has been placed</h5>
+                                        <h5 class="media-heading">You will notify with our new schemes</h5>
                                         <p class="m-0">
                                             <small>There are new settings available</small>
                                         </p>
@@ -99,8 +99,6 @@
                         <img src="{% static 'images/users/avatar-1.jpg'%}" alt="user-img" class="img-circle"> </a>
                         
                         <ul class="dropdown-menu">
-                            <li><a href="clientapp_profile"><i class="ti-user m-r-10 text-custom"></i> Profile </a></li>
-                            <li class="divider"></li>
                             <li><a href="/user/logout"><i class="ti-power-off m-r-10 text-danger"></i> Logout</a></li>
                         </ul>
                     </li>
@@ -123,15 +121,21 @@
 
                     <li class="has_sub">
 
-                        <a href="/"><i class="ti-home"></i> <span> Dashboard </span> <span class="menu-arrow"></span></a>
+                        <a href="{% url 'clientapp_dashboard' %}"><i class="ti-home"></i> <span> Dashboard </span> <span class="menu-arrow"></span></a>
                        
                      </li>
                      <!-- <ul class="list-unstyled"> -->
                     <li class="has_sub">
                         <a href="javascript:void(0);" class="waves-effect"><i class="ti-paint-bucket"></i> <span>Bulk Whatsapp</span> <span class="menu-arrow"></span> </a>
                         <ul class="list-unstyled">
-                            <li><a href="/send">Send Whatsapp</a></li>
-                            <li><a href="/report">Whatsapp Report</a></li>
+                            <li><a href="{% url 'clientapp_send' %}">Send Whatsapp</a></li>
+                            <li><a href="{% url 'clientapp_report' %}">Whatsapp Report</a></li>
+                        </ul>
+                    </li>
+                    <<li class="has_sub">
+                        <a href="javascript:void(0);" class="waves-effect"><i class="ti-paint-bucket"></i> <span>Bulk Whatsapp Plans</span> <span class="menu-arrow"></span> </a>
+                        <ul class="list-unstyled">
+                            <li><a href="{% url 'clientapp_currentplan' %}">Users Whatsapp Plan</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -166,7 +170,7 @@
             <li class="list-group-item">
                 <a href="#">
                     <div class="avatar">
-                        <img src="{% static 'images/users/avatar-1.jpg'%}" alt="">
+                        <img src="{% static 'images/users/avatar-1.jpg '%}" alt="">
                     </div>
                     <span class="name">Indra</span>
                     <i class="fa fa-circle online"></i>
@@ -202,7 +206,7 @@
        <script src="{% static 'plugins/peity/jquery.peity.min.js' %}" ></script>
 
         <!-- jQuery  -->
-       <script src="{% static 'plugins/waypoints/lib/jquery.waypoints.js' %}" ></script>
+       <script src="{% static 'plugins/waypoints/jquery.waypoints.js' %}" ></script>
        <script src="{% static 'plugins/counterup/jquery.counterup.min.js' %}" ></script>
 
       <script src="{% static 'plugins/morris/morris.min.js' %}" ></script>

@@ -1,0 +1,169 @@
+{% load staticfiles %}
+{% load i18n %} 
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="A fully featured admin theme which can be used to build CRM, CMS, etc.">
+        <meta name="author" content="Coderthemes">
+
+        <link rel="shortcut icon" href="{% static 'frontend/images/favicon.ico' %}">
+
+        <title>Winsoft Web Solution</title>
+
+        <!-- Bootstrap core CSS -->
+        <link href="{% static 'website/css/bootstrap.min.css' %}" rel="stylesheet">
+
+        <!-- Owl Carousel CSS -->
+        <link href="{% static 'website/css/owl.carousel.css' %}" rel="stylesheet">
+        <link href="{% static 'website/css/owl.theme.default.min.css' %}" rel="stylesheet">
+
+        <!-- Icon CSS -->
+        <link href="{% static 'website/css/font-awesome.min.css' %}" rel="stylesheet">
+
+        <!-- Custom styles for this template -->
+        <link href="{% static 'website/css/style.css' %}" rel="stylesheet">
+
+        {% block css %}
+        {% endblock css %}
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 tooltipss and media queries -->
+        <!--[if lt IE 9]>
+          <script src="{% static 'website/js/html5shiv.js' %}"></script>
+          <script src="{% static 'website/js/respond.min.js' %}"></script>
+        <![endif]-->
+
+    </head>
+    <body data-target="#navbar-menu">
+
+        <!-- Navbar -->
+        <div class="navbar navbar-custom sticky navbar-fixed-top" role="navigation" id="sticky-nav">
+            <div class="container">
+
+                <!-- Navbar-header -->
+                <div class="navbar-header">
+
+                    <!-- Responsive menu button -->
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                    <!-- LOGO -->
+                    <a class="navbar-brand logo" href="{% url 'homepage' %}">
+                        Wins<span class="text-custom">o</span>ft
+                    </a>
+
+                </div>
+                <!-- end navbar-header -->
+
+                <!-- menu -->
+                <div class="navbar-collapse collapse" id="navbar-menu">
+
+                    <!-- Navbar right -->
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="active">
+                            <a href="{% url 'homepage' %}" >Home</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'plans' %}" >Bulk Whatsapp Plans</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'contactus' %}" >Contact us</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'auth_login' %}">Login</a>
+                        </li>
+                    </ul>
+
+                </div>
+                <!--/Menu -->
+            </div>
+            <!-- end container -->
+        </div>
+        <!-- End navbar-custom -->
+        <!-- HOME -->
+        <section class="home bg-img-1">
+        <div class="bg-overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 text-center">
+                        <div class="home-fullscreen">
+                            <div class="full-screen">
+                                <div class="home-wrapper home-wrapper-alt">
+                                    <h2 class="font-light text-white">Welcome to windsot technology</h2>
+                                    <h4 class="text-white">Winsoft provides... </h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- END HOME -->
+        {% block content %}
+        {% endblock %} 
+        <!-- FOOTER -->
+        <footer class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-3">
+                        <a class="navbar-brand logo" href="index.html">
+                            Wins<span class="text-custom">o</span>ft
+                        </a>
+                    </div>
+                   <div class="col-lg-4 col-lg-offset-3 col-md-7">
+                        <ul class="nav navbar-nav">
+                            <li><a href="#">plans</a></li>
+                            <li><a href="#">contactus</a></li>
+                            <li><a href="#">aboutus</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-2 col-md-2">
+                        <ul class="social-icons">
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                        </ul>
+                    </div>  
+                </div> <!-- end row -->
+            </div> <!-- end container -->
+        </footer>
+        <!-- End Footer -->
+        
+
+        <!-- Back to top -->    
+        <!-- js placed at the end of the document so the pages load faster -->
+        <script src="{% static 'website/js/jquery-2.1.4.min.js' %}"></script>
+        <script src="{% static 'website/js/bootstrap.min.js' %}"></script>
+
+        <!-- Jquery easing -->                                                      
+        <script type="text/javascript" src="{% static 'website/js/jquery.easing.1.3.min.js' %}"></script>
+
+        <!-- Owl Carousel -->                                                      
+        <script type="text/javascript" src="{% static 'website/js/owl.carousel.min.js' %}"></script>
+
+        <!--sticky header-->
+        <script type="text/javascript" src="{% static 'website/js/jquery.sticky.js' %}"></script>
+
+        <!--common script for all pages-->
+        <script src="{% static 'website/js/jquery.app.js' %}"></script>
+
+        <script type="text/javascript">
+            $('.owl-carousel').owlCarousel({
+                loop:true,
+                margin:10,
+                nav:false,
+                autoplay: true,
+                autoplayTimeout: 4000,
+                responsive:{
+                    0:{
+                        items:1
+                    }
+                }
+            })
+        </script>
+    </body>
+</html>
